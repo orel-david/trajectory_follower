@@ -125,6 +125,14 @@ public class Drivetrain extends Subsystem {
         return desiredVelocity;
     }
 
+    public void setLeftVelocity(double linearVel, double angularVel){
+        leftMaster.set(ControlMode.Velocity, linearVel+angularVel* DRIVETRAIN_WIDTH*0.5);
+    }
+
+    public void setRightVelocity(double linearVel, double angularVel){
+        rightMaster.set(ControlMode.Velocity, linearVel-angularVel* DRIVETRAIN_WIDTH*0.5);
+    }
+
     public double convertTicksToDistance(int tick) {
         return tick / TICKS_PER_METER;
     }
