@@ -5,6 +5,9 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import robot.Constants;
+import robot.Robot;
+
 /**
  * This is a temporary subsystem from last year.
  */
@@ -56,6 +59,22 @@ public class Drivetrain extends Subsystem {
 
     public double getLeftVelocity() {
         return convertTicksToDistance(leftMaster.getSelectedSensorVelocity()) * 10;
+    }
+
+    /**
+     *
+     * @return angle in degrees
+     */
+    public double getAngle(){
+        return Robot.navx.getAngle();
+    }
+
+    /**
+     *
+     * @return return angular velocity in rad/sec
+     */
+    public double getAngularVelocity(){
+        return Math.toRadians(Robot.navx.getRate());
     }
 
     public int convertDistanceToTicks(double distance) {
