@@ -9,9 +9,8 @@ public class VelocityDrive extends Command {
 
     private double angularVelocity;
     private double linearVelocity;
-    private double linearOutput, angularOutput;
+    private double angularOutput;
     private MiniPID angular = new MiniPID(Constants.Drivetrain.angularPID[0], Constants.Drivetrain.angularPID[1], Constants.Drivetrain.angularPID[2]);
-    private MiniPID linear = new MiniPID(Constants.Drivetrain.linearPID[0], Constants.Drivetrain.linearPID[1], Constants.Drivetrain.linearPID[2]);
 
 
     public VelocityDrive(double angularVelocity, double linearVelocity) {
@@ -27,12 +26,8 @@ public class VelocityDrive extends Command {
 
     @Override
     protected void execute() {
-
         angularOutput = angular.getOutput(Robot.m_drivetrain.getAngularVelocity(), angularVelocity);
-        linearOutput = linear.getOutput((Robot.m_drivetrain.getLeftVelocity() + Robot.m_drivetrain.getRightVelocity()) / 2, linearVelocity);
-
-        Robot.m_drivetrain.setArcadeVelocities((linearOutput + (Robot.m_drivetrain.getLeftVelocity() + Robot.m_drivetrain.getRightVelocity()) / 2),
-                Robot.m_drivetrain.getAngularVelocity() + angularOutput);
+        Robot.m_drivetrain.setArcadeVelocities(linearVelocity,Robot.m_drivetrain.getAngularVelocity() + angularOutput);
     }
 
     @Override
