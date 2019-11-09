@@ -6,6 +6,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import robot.Constants;
+import robot.Ports;
 import robot.Robot;
 
 /**
@@ -35,6 +36,17 @@ public class Drivetrain extends Subsystem {
 
         leftMaster.configPeakCurrentLimit(MAX_CURRENT);
         rightMaster.configPeakCurrentLimit(MAX_CURRENT);
+
+
+        leftMaster.config_kP(0, Constants.Drivetrain.LEFT_TALON_VELOCITY_PID[0]);
+        leftMaster.config_kI(0, Constants.Drivetrain.LEFT_TALON_VELOCITY_PID[1]);
+        leftMaster.config_kD(0, Constants.Drivetrain.LEFT_TALON_VELOCITY_PID[2]);
+        leftMaster.config_kF(0, Constants.Drivetrain.LEFT_TALON_VELOCITY_PID[3]);
+
+        rightMaster.config_kP(0, Constants.Drivetrain.RIGHT_TALON_VELOCITY_PID[0]);
+        rightMaster.config_kI(0, Constants.Drivetrain.RIGHT_TALON_VELOCITY_PID[1]);
+        rightMaster.config_kD(0, Constants.Drivetrain.RIGHT_TALON_VELOCITY_PID[2]);
+        rightMaster.config_kF(0, Constants.Drivetrain.RIGHT_TALON_VELOCITY_PID[3]);
     }
 
     public void setLeftSpeed(double speed) {

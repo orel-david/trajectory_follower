@@ -18,6 +18,8 @@ public class Constants {
         public static final int MAX_CURRENT = 35;
         public static final double DRIVETRAIN_WIDTH = 0.75;
         public static final double[] angularPID = {0,0,0};
+        public static final double[] RIGHT_TALON_VELOCITY_PID = {4, 0.006, 10 ,0};
+        public static final double[] LEFT_TALON_VELOCITY_PID = {4, 0.006, 10, 0.1};
     }
 
 
