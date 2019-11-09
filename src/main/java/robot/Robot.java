@@ -14,6 +14,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import robot.subsystems.drivetrain.Drivetrain;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
+
+import static sun.util.locale.provider.LocaleProviderAdapter.Type.SPI;
 
 
 /**
@@ -28,7 +33,7 @@ public class Robot extends TimedRobot {
     public static final Drivetrain m_drivetrain = new Drivetrain();
     //public static final Elevator m_elevator = new Elevator();
     public static AHRS navx = new AHRS(SPI.Port.kMXP);
-
+    public  static NetworkTable velocityTable = NetworkTableInstance.getDefault().getTable("velocity");
     public static RobotContainer m_robotContainer;
 
     Command m_autonomousCommand;

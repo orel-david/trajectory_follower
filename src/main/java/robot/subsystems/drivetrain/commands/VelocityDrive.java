@@ -4,12 +4,16 @@ import com.stormbots.MiniPID;
 import edu.wpi.first.wpilibj.command.Command;
 import robot.Constants;
 import robot.Robot;
+import edu.wpi.first.networktables.NetworkTableEntry;
+
 
 public class VelocityDrive extends Command {
 
     private double angularVelocity;
     private double linearVelocity;
     private double angularOutput;
+    private NetworkTableEntry linearVelocityEntry = Robot.velocityTable.getEntry("distance");
+    private NetworkTableEntry angularVelocityEntry = Robot.velocityTable.getEntry("angle");
     private MiniPID angular = new MiniPID(Constants.Drivetrain.angularPID[0], Constants.Drivetrain.angularPID[1], Constants.Drivetrain.angularPID[2]);
 
 
