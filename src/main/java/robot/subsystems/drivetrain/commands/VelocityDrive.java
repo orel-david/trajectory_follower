@@ -27,7 +27,7 @@ public class VelocityDrive extends Command {
     @Override
     protected void execute() {
         angularOutput = angular.getOutput(Robot.m_drivetrain.getAngularVelocity(), angularVelocity);
-        Robot.m_drivetrain.setArcadeVelocities(linearVelocity,Robot.m_drivetrain.getAngularVelocity() + angularOutput);
+        Robot.m_drivetrain.setArcadeVelocities(linearVelocity,angularVelocity + angularOutput);
     }
 
     @Override
