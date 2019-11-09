@@ -58,11 +58,11 @@ public class Drivetrain extends Subsystem {
     }
 
     public void setLeftVelocity(double velocity) {
-        leftMaster.set(ControlMode.Velocity, velocity);
+        leftMaster.set(ControlMode.Velocity, convertDistanceToTicks(velocity));
     }
 
     public void setRightVelocity(double velocity) {
-        rightMaster.set(ControlMode.Velocity, velocity);
+        rightMaster.set(ControlMode.Velocity, convertDistanceToTicks(velocity));
     }
 
     public double getLeftDistance() {
