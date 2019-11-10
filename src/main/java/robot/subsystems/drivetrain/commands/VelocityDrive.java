@@ -30,6 +30,8 @@ public class VelocityDrive extends Command {
 
     @Override
     protected void execute() {
+        angularVelocityEntry.setDouble(Robot.m_drivetrain.getAngularVelocity());
+        linearVelocityEntry.setDouble((Robot.m_drivetrain.getLeftVelocity()+Robot.m_drivetrain.getRightVelocity())/2);
         angularOutput = angular.getOutput(Robot.m_drivetrain.getAngularVelocity(), angularVelocity);
         Robot.m_drivetrain.setArcadeVelocities(linearVelocity,angularVelocity + angularOutput);
     }
