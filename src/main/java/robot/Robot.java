@@ -18,7 +18,6 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
-import static sun.util.locale.provider.LocaleProviderAdapter.Type.SPI;
 
 
 /**
